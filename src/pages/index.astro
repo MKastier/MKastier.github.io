@@ -1,11 +1,22 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+    <!-- Tu vytvoríme taký pekný, na stred zarovnaný blok -->
+    <main class="min-h-screen bg-slate-900 text-white flex flex-col items-center justify-center">
+        
+        <h1 class="text-5xl font-extrabold text-blue-400 mb-6">
+            Ahoj, ja som Miro 👋
+        </h1>
+        
+        <p class="text-xl text-slate-300 max-w-lg text-center">
+            Vitaj na mojom novom portfóliu. Práve sa hrám s Tailwind CSS a zatiaľ to vyzerá super!
+        </p>
+
+        <button class="mt-8 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl transition-all">
+            Moje projekty
+        </button>
+
+    </main>
 </Layout>
