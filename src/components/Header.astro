@@ -1,22 +1,123 @@
----
-// Tu neskôr môžeme pridať nejaký kód (napr. pre mobilné menu)
----
 
-<header class="w-full bg-white border-b border-gray-100">
-
+<header class="sticky top-0 z-50 w-full bg-white/40 backdrop-blur-md border-b border-white/20 shadow-sm transition-all">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       
-      <a href="/" class="text-2xl font-black tracking-tighter text-black">LOGO</a>
+      <a href="#home" class="text-2xl font-black tracking-tighter text-black">LOGO</a>
   
       <nav class="hidden md:flex items-center gap-8 font-medium text-gray-600">
-        <a href="/" class="hover:text-[#0f766e] transition-colors">Home</a>
-        <a href="#about" class="hover:text-[#0f766e] transition-colors">About</a>
-        <a href="#projects" class="hover:text-[#0f766e] transition-colors">Projects</a>
-        <a href="#contact" class="hover:text-[#0f766e] transition-colors">Contact</a>
+        <a href="#home" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">Home</a>
+        <a href="#about" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">About</a>
+        <a href="#projects" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">Projects</a>
+        <a href="#skills" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">Skills</a>
+        <a href="#contact" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">Contact</a>
       </nav>
   
-      <a href="/CV.pdf" target="_blank" class="hidden md:inline-block bg-[#0f766e] hover:bg-[#0b5c56] 
-        text-white px-5 py-2.5 rounded-lg font-semibold transition-all shadow-sm">Download CV</a>
-  
+        <a href="/CV.pdf" target="_blank" class="hidden md:inline-block bg-[#0f766e] hover:bg-[#0b5c56] text-white px-5 py-2.5 
+            rounded-lg font-semibold transition-all shadow-sm z-50 relative">Download CV</a>
+        
+            <button id="menu-btn" class="md:hidden z-50 relative flex flex-col gap-[5px] p-2 focus:outline-none">
+                <div class="w-6 h-[2px] bg-black transition-all duration-300 origin-left" id="line1"></div>
+                <div class="w-6 h-[2px] bg-black transition-all duration-300" id="line2"></div>
+                <div class="w-6 h-[2px] bg-black transition-all duration-300 origin-left" id="line3"></div>
+              </button>
     </div>
-  </header>
+</header>
+    <div id="mobile-menu" class="fixed inset-0 bg-white flex flex-col items-center justify-center pb-32 gap-8 text-xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        <a href="#home" class="mobile-link hover:text-[#0f766e] transition-colors">Home</a>
+        <a href="#about" class="mobile-link hover:text-[#0f766e] transition-colors">About</a>
+        <a href="#projects" class="mobile-link hover:text-[#0f766e] transition-colors">Projects</a>
+        <a href="#skills" class="mobile-link hover:text-[#0f766e] transition-colors">Skills</a>
+        <a href="#contact" class="mobile-link hover:text-[#0f766e] transition-colors">Contact</a>
+        <a href="/CV.pdf" target="_blank" class="mobile-link bg-[#0f766e] hover:bg-[#0b5c56] text-white px-8 py-3 mt-4 rounded-lg shadow-md transition-all">
+          Download CV
+        </a>
+    </div>
+  
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('.mobile-link');
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const line3 = document.getElementById('line3');
+  
+    let isMenuOpen = false;
+  
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      
+      if (isMenuOpen)
+      {
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100', 'pointer-events-auto');
+        
+        // Animácia hamburgeru na "X"
+        line1.classList.add('rotate-45', 'translate-x-[2px]', '-translate-y-[2px]');
+        line2.classList.add('opacity-0');
+        line3.classList.add('-rotate-45', 'translate-x-[2px]', 'translate-y-[2px]');
+        
+        // Zabráni scrollovaniu pozadia, keď je menu otvorené
+        document.body.style.overflow = 'hidden';
+      } 
+      else
+      {
+        // Zatvor menu
+        menu.classList.remove('opacity-100', 'pointer-events-auto');
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        
+        // Animácia "X" späť na hamburger
+        line1.classList.remove('rotate-45', 'translate-x-[2px]', '-translate-y-[2px]');
+        line2.classList.remove('opacity-0');
+        line3.classList.remove('-rotate-45', 'translate-x-[2px]', 'translate-y-[2px]');
+        
+        // Povolí opäť scrollovanie
+        document.body.style.overflow = 'auto';
+      }
+    }
+  
+    // Ak sa klikne na tlačidlo, spusti funkciu
+    btn.addEventListener('click', toggleMenu);
+  
+    // Ak sa klikne na hocijaký odkaz v menu, menu sa musí samé zatvoriť
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isMenuOpen) toggleMenu();
+      });
+    });
+
+
+  const sections = document.querySelectorAll('section');
+  const navLinksDesktop = document.querySelectorAll('.nav-link');
+  
+  // Tieto Tailwind triedy sa pridajú na link, ktorý je práve "aktívny"
+  const activeClasses = ['text-[#0f766e]', 'underline', 'decoration-2', 'decoration-[#0f766e]', 'underline-offset-8'];
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      // Ak posunieme stránku o kúsok pod začiatok sekcie (aby to preplo v správnom momente)
+      if (scrollY >= sectionTop - 150) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinksDesktop.forEach(link => {
+      // Najprv zmažeme aktívne triedy zo všetkých linkov
+      link.classList.remove(...activeClasses);
+      
+      // Ak sa href zhoduje s ID sekcie, na ktorej sme, pridáme triedy
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add(...activeClasses);
+      }
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    // 768px je Tailwind breakpoint pre 'md' (odkiaľ sa ukazuje počítačové menu)
+    if (window.innerWidth >= 768 && isMenuOpen) {
+      toggleMenu(); // Táto funkcia menu bezpečne zatvorí a vráti X späť na hamburger
+    }
+  });
+</script>
