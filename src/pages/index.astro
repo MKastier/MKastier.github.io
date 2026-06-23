@@ -3,20 +3,25 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-    <!-- Tu vytvoríme taký pekný, na stred zarovnaný blok -->
-    <main class="min-h-screen bg-slate-900 text-white flex flex-col items-center justify-center">
+    <!-- Sekcia Hero (Úvod) -->
+    <section class="max-w-6xl mx-auto px-6 py-24 md:py-32 flex flex-col items-start">
         
-        <h1 class="text-5xl font-extrabold text-blue-400 mb-6">
-            Ahoj, ja som Miro 👋
-        </h1>
-        
-        <p class="text-xl text-slate-300 max-w-lg text-center">
-            Vitaj na mojom novom portfóliu. Práve sa hrám s Tailwind CSS a zatiaľ to vyzerá super!
+        <p class="text-[#0f766e] font-bold tracking-wide uppercase mb-3">
+            Hi, my name is
         </p>
 
-        <button class="mt-8 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-xl transition-all">
-            Moje projekty
-        </button>
+        <h1 class="text-5xl md:text-7xl font-black text-gray-900 mb-6 tracking-tight">
+            Majro <br />
+            <span class="text-gray-400">I build things for the web.</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
+            I'm a software developer specializing in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building modern web applications.
+        </p>
 
-    </main>
+        <a href="#projects" class="px-8 py-4 bg-gray-900 hover:bg-black text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-xl">
+            Check out my projects
+        </a>
+
+    </section>
 </Layout>
