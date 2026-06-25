@@ -37,12 +37,102 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
 	    <!-- SKILLS -->
-		<section id="skills" class="w-full bg-gray-50 py-24 min-h-screen border-t border-gray-100">
-			<div class="max-w-6xl mx-auto px-6">
-				<h2 class="text-3xl font-bold text-gray-900 mb-6">My Skills</h2>
-				<p class="text-gray-600">In process...</p>
-			</div>
-		</section>
+    <section id="skills" class="relative w-full py-24 min-h-screen flex justify-center items-center bg-gradient-to-br from-teal-100/80 via-teal-50 to-[#dff2ee]">
+        
+        <div class="max-w-4xl mx-auto px-6 w-full flex flex-col items-center relative z-10">
+            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-slate-800 mb-4 tracking-tight">My Skills</h2>
+                <p class="text-slate-500 max-w-md mx-auto text-lg">
+                    Technologies and tools I work with to bring ideas to life.
+                </p>
+            </div>
+
+            <div class="w-full flex flex-col gap-6">
+
+                <div class="skill-card group relative bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl overflow-hidden transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:border-white/80 cursor-pointer">
+                    
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#0f766e] rounded-full filter blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none z-0"></div>
+                    
+                    <div class="skill-header flex items-center justify-between p-6 md:p-8 relative z-10">
+                        <div class="flex items-center gap-5">
+                            <div class="w-14 h-14 bg-white/70 rounded-2xl flex items-center justify-center text-[#0f766e] border border-white/50 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 tracking-wide">Frontend</h3>
+                        </div>
+                        <div class="chevron text-slate-400 transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+
+                    <div class="skill-content grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-in-out relative z-10">
+                        <div class="overflow-hidden">
+                            <div class="p-6 md:p-8 pt-0 border-t border-white/60 mt-2 flex flex-wrap gap-3">
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-orange-500"></span>HTML5</div>
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>CSS3</div>
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-400"></span>JavaScript</div>
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-cyan-400"></span>React</div>
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Tailwind CSS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card group relative bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl overflow-hidden transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:border-white/80 cursor-pointer">
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#0f766e] rounded-full filter blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none z-0"></div>
+                    
+                    <div class="skill-header flex items-center justify-between p-6 md:p-8 relative z-10">
+                        <div class="flex items-center gap-5">
+                            <div class="w-14 h-14 bg-white/70 rounded-2xl flex items-center justify-center text-[#0f766e] border border-white/50 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 tracking-wide">Backend</h3>
+                        </div>
+                        <div class="chevron text-slate-400 transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+
+                    <div class="skill-content grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-in-out relative z-10">
+                        <div class="overflow-hidden">
+                            <div class="p-6 md:p-8 pt-0 border-t border-white/60 mt-2 flex flex-wrap gap-3">
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span>Node.js</div>
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-400"></span>PostgreSQL</div>
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-[#0f766e]"></span>Supabase</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card group relative bg-white/40 backdrop-blur-xl border border-white/60 rounded-3xl overflow-hidden transition-all duration-300 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:border-white/80 cursor-pointer">
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#0f766e] rounded-full filter blur-[100px] opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none z-0"></div>
+                    
+                    <div class="skill-header flex items-center justify-between p-6 md:p-8 relative z-10">
+                        <div class="flex items-center gap-5">
+                            <div class="w-14 h-14 bg-white/70 rounded-2xl flex items-center justify-center text-[#0f766e] border border-white/50 shadow-sm">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 tracking-wide">Design & Tools</h3>
+                        </div>
+                        <div class="chevron text-slate-400 transition-transform duration-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+
+                    <div class="skill-content grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-in-out relative z-10">
+                        <div class="overflow-hidden">
+                            <div class="p-6 md:p-8 pt-0 border-t border-white/60 mt-2 flex flex-wrap gap-3">
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-purple-500"></span>Figma</div>
+                                <div class="px-4 py-2 bg-white/60 border border-white/50 shadow-sm rounded-xl text-slate-700 font-medium flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-orange-600"></span>Git & GitHub</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 <!-- CONTACT -->
     <section id="contact" class="relative w-full py-24 min-h-screen flex justify-center items-center overflow-hidden bg-teal-50">
@@ -186,6 +276,34 @@ import Layout from '../layouts/Layout.astro';
 				popupCard.classList.add('scale-95');
 			});
 		}
+
+		// --- LOGIKA PRE SKILLS (VYROLOVANIE) ---
+        const skillCards = document.querySelectorAll('.skill-card');
+        
+        skillCards.forEach(card => {
+            const header = card.querySelector('.skill-header');
+            const content = card.querySelector('.skill-content');
+            const chevron = card.querySelector('.chevron');
+
+            header.addEventListener('click', () => {
+                // Zistíme, či je karta momentálne otvorená
+                const isOpen = content.classList.contains('grid-rows-[1fr]');
+
+                if (isOpen) {
+                    // Ak je otvorená, ZATVOR JU
+                    content.classList.remove('grid-rows-[1fr]', 'opacity-100');
+                    content.classList.add('grid-rows-[0fr]', 'opacity-0');
+                    chevron.classList.remove('rotate-180');
+                    card.classList.remove('border-[#0f766e]'); // zrušíme zelený okraj
+                } else {
+                    // Ak je zatvorená, OTVOR JU
+                    content.classList.remove('grid-rows-[0fr]', 'opacity-0');
+                    content.classList.add('grid-rows-[1fr]', 'opacity-100');
+                    chevron.classList.add('rotate-180');
+                    card.classList.add('border-[#0f766e]'); // zasvieti zelený okraj
+                }
+            });
+        });
 	</script>
 </Layout>
 
