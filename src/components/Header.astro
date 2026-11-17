@@ -10,7 +10,7 @@ const text = {
         contact: "Contact",
         cv: "Download CV",
         switchUrl: "/sk",
-        switchLabel: "🇬🇧 EN"
+        switchLabel: "🇸🇰 SK" 
     },
     sk: {
         home: "Domov",
@@ -20,7 +20,7 @@ const text = {
         contact: "Kontakt",
         cv: "Stiahnuť Životopis",
         switchUrl: "/",
-        switchLabel: "🇸🇰 SK" 
+        switchLabel: "🇬🇧 EN"
     }
 };
 
@@ -30,7 +30,13 @@ const t = text[lang];
 <header class="sticky top-0 z-50 w-full bg-white/40 backdrop-blur-md border-b border-white/20 shadow-sm transition-all">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       
-      <a href="#home" class="text-2xl font-black tracking-tighter text-black">LOGO</a>
+      <a href="#home" class="z-50 relative flex items-center">
+        <img 
+            src="/logo.png" 
+            alt="Moje Logo" 
+            class="h-10 md:h-11 w-auto object-contain"
+        >
+    </a>
   
       <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
         <a href="#home" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">{t.home}</a>
