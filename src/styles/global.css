@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-html, body {
-  @apply bg-white text-gray-900;
-  scroll-behavior: smooth; /* Toto pridá pekný plynulý prechod pri klikaní na linky v menu */
+html, body
+{
+  background-color: white;
+  color: #111827;
+  scroll-behavior: smooth;
 }

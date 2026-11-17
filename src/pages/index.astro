@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- HOME -->
 <section id="home" class="relative w-full min-h-screen flex flex-col justify-center overflow-hidden bg-teal-50">
         
-	<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] md:w-[120%] h-[150%] bg-gradient-to-br from-[#0f766e] to-teal-200 rounded-[100%] filter blur-[150px] opacity-30 pointer-events-none"></div>
+	<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] md:w-[120%] h-[150%] bg-linear-to-br from-[#0f766e] to-teal-200 rounded-[100%] filter blur-[150px] opacity-30 pointer-events-none"></div>
 
 	<div class="relative z-10 max-w-6xl mx-auto px-6 py-24 md:py-32 w-full flex flex-col items-start">
 		
@@ -47,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
 	    <!-- SKILLS -->
-    <section id="skills" class="relative w-full py-24 min-h-screen flex justify-center items-center bg-gradient-to-br from-teal-100/80 via-teal-50 to-[#dff2ee]">
+    <section id="skills" class="relative w-full py-24 min-h-screen flex justify-center items-center bg-linear-to-br from-teal-100/80 via-teal-50 to-[#dff2ee]">
         
         <div class="max-w-4xl mx-auto px-6 w-full flex flex-col items-center relative z-10">
             
@@ -147,7 +147,7 @@ import Layout from '../layouts/Layout.astro';
 <!-- CONTACT -->
     <section id="contact" class="relative w-full py-24 min-h-screen flex justify-center items-center overflow-hidden bg-teal-50">
         
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] md:w-[120%] h-[150%] bg-gradient-to-br from-[#0f766e] to-teal-200 rounded-[100%] filter blur-[150px] opacity-30"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150%] md:w-[120%] h-[150%] bg-linear-to-br from-[#0f766e] to-teal-200 rounded-[100%] filter blur-[150px] opacity-30"></div>
 
         <div class="max-w-4xl mx-auto px-6 w-full flex flex-col items-center relative z-10">
             
@@ -192,14 +192,14 @@ import Layout from '../layouts/Layout.astro';
             </div>
         </div>
 
-		<div id="result-popup" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+		<div id="result-popup" class="fixed inset-0 z-100 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
             <div id="popup-card" class="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full mx-6 transform scale-95 transition-transform duration-300 text-center">
                 
-                <div id="popup-icon-success" class="hidden w-16 h-16 mx-auto bg-teal-100 text-[#0f766e] rounded-full flex items-center justify-center mb-4">
+                <div id="popup-icon-success" class="w-16 h-16 mx-auto bg-teal-100 text-[#0f766e] rounded-full flex items-center justify-center mb-4">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                 </div>
 
-                <div id="popup-icon-error" class="hidden w-16 h-16 mx-auto bg-red-100 text-red-500 rounded-full flex items-center justify-center mb-4">
+                <div id="popup-icon-error" class="w-16 h-16 mx-auto bg-red-100 text-red-500 rounded-full flex items-center justify-center mb-4">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </div>
                 
