@@ -2,41 +2,45 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full bg-white border-t border-gray-100">
-  <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center gap-4">
+<footer class="w-full bg-[#061c1a] border-t border-white/10 py-10 relative overflow-hidden">
+  
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-teal-400/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6 relative z-10">
     
-    <p class="text-gray-500 text-sm">
-      © {currentYear} Miroslav Kaštier. All rights reserved.
-    </p>
+    <div class="flex items-center gap-3.5">
+      <span class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 text-teal-300 font-extrabold text-xs shrink-0 shadow-inner">MK</span>
+      <p class="text-white/60 text-xs sm:text-sm leading-relaxed">
+        © {currentYear} Majro. Built with Astro & Tailwind. <br> All rights reserved.
+      </p>
+    </div>
 
-    <div class="flex gap-6">
-        <a href="https://github.com/MKastier" target="_blank">
-          <iconify-icon
-            width="50"
-            height="50"
-            icon="mdi:github"
-            class="text-gray-600 hover:text-teal-700 transition-all duration-300">
-        </iconify-icon>
-        </a>
-      
-        <a href="https://www.linkedin.com/in/miroslav-ka%C5%A1tier-788a92310/" target="_blank">
-          <iconify-icon
-            width="50"
-            height="50"
-            icon="mdi:linkedin"
-            class="text-gray-600 hover:text-teal-700 transition-all duration-300">
-        </iconify-icon>
-        </a>
+    <div class="flex items-center gap-4 sm:gap-5">
 
-        <a href="https://www.instagram.com/miroslavkastier/" target="_blank">
-            <iconify-icon
-              width="50"
-              height="50"
-              icon="mdi:instagram"
-              class="text-gray-600 hover:text-teal-700 transition-all duration-300">
-          </iconify-icon>
-          </a>
-      </div>
+      <a href="https://github.com/MKastier" target="_blank" aria-label="GitHub"
+         class="flex items-center justify-center text-white/45 hover:text-teal-300 hover:-translate-y-0.5 transition-all duration-300">
+        <iconify-icon width="34" height="34" icon="mdi:github"></iconify-icon>
+      </a>
+    
+      <a href="https://www.linkedin.com/in/miroslav-ka%C5%A1tier-788a92310/" target="_blank" aria-label="LinkedIn"
+         class="flex items-center justify-center text-white/45 hover:text-teal-300 hover:-translate-y-0.5 transition-all duration-300">
+        <iconify-icon width="34" height="34" icon="mdi:linkedin"></iconify-icon>
+      </a>
 
+      <a href="https://www.instagram.com/miroslavkastier/" target="_blank" aria-label="Instagram"
+         class="flex items-center justify-center text-white/45 hover:text-teal-300 hover:-translate-y-0.5 transition-all duration-300">
+        <iconify-icon width="34" height="34" icon="mdi:instagram"></iconify-icon>
+      </a>
+
+      <span class="w-px h-6 bg-white/15 mx-1"></span>
+
+      <a href="#home" aria-label="Back to top"
+         class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#0f766e] border border-white/20 hover:border-teal-300/50 text-teal-300 hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1 shadow-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+      </a>
+
+    </div>
   </div>
 </footer>

@@ -6,149 +6,135 @@ const { lang = 'en' } = Astro.props;
 const text = {
     en: {
         home: "Home",
-        about: "About",
         projects: "Projects",
         skills: "Skills",
         contact: "Contact",
         cv: "Download CV",
         switchUrl: "/sk",
-        switchLabel: "🇸🇰 SK" 
+        switchLabel: "SK",
+        switchFlag: "🇸🇰"
     },
     sk: {
         home: "Domov",
-        about: "O mne",
         projects: "Projekty",
         skills: "Zručnosti",
         contact: "Kontakt",
-        cv: "Stiahnuť Životopis",
+        cv: "Stiahnuť CV",
         switchUrl: "/",
-        switchLabel: "🇬🇧 EN"
+        switchLabel: "EN",
+        switchFlag: "🇬🇧"
     }
 };
 
 const t = text[lang as keyof typeof text] || text.en;
+
+const navLinks = [
+  { id: 'home', label: t.home, icon: 'M3 11l9-8 9 8M5 10v10h14V10' },
+  { id: 'projects', label: t.projects, icon: 'M8 7l-5 5 5 5M16 7l5 5-5 5' },
+  { id: 'skills', label: t.skills, icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+  { id: 'contact', label: t.contact, icon: 'M3 7l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z' },
+];
 ---
 
-<header class="sticky top-0 z-50 w-full bg-white/40 backdrop-blur-md border-b border-white/20 shadow-sm transition-all">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between md:justify-center md:gap-40">
-      
-      <a href="#home" class="z-50 relative flex items-center transition-transform hover:scale-105">
-        <img src="/logo.png" alt="Moje Logo" class="h-10 md:h-11 w-auto object-contain">
-      </a>
-  
-      <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
-        <a href="#home" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">{t.home}</a>
-        <a href="#about" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">{t.about}</a>
-        <a href="#projects" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">{t.projects}</a>
-        <a href="#skills" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">{t.skills}</a>
-        <a href="#contact" class="nav-link hover:text-[#0f766e] hover:underline hover:decoration-2 hover:decoration-[#0f766e] hover:underline-offset-8 transition-all">{t.contact}</a>
-      </nav>
-  
-      <a href="/CV.pdf" target="_blank" class="hidden md:inline-block bg-[#0f766e] hover:bg-[#0b5c56] text-white px-5 py-2.5 rounded-lg font-semibold transition-all shadow-sm">
-        {t.cv}
-      </a>
+<header class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+    
+    <div class="glass pointer-events-auto rounded-full pl-4 sm:pl-6 pr-3 sm:pr-4 py-2 sm:py-2.5 flex items-center gap-3 sm:gap-6 shadow-2xl transition-all">
         
-      <button id="menu-btn" class="md:hidden z-50 relative flex flex-col gap-1.25 p-2 focus:outline-none">
-          <div class="w-6 h-0.5 bg-black transition-all duration-300 origin-left" id="line1"></div>
-          <div class="w-6 h-0.5 bg-black transition-all duration-300" id="line2"></div>
-          <div class="w-6 h-0.5 bg-black transition-all duration-300 origin-left" id="line3"></div>
-      </button>
+        <a href="#home" class="flex items-center transition-transform hover:scale-105 shrink-0">
+          <span class="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center border border-white/20 text-teal-300 font-extrabold text-xs">MK</span>
+        </a>
+
+        <nav aria-label="Main navigation" class="hidden md:flex items-center gap-1 sm:gap-2">
+            {navLinks.map((l) => (
+                <a href={`#${l.id}`} data-nav={l.id} aria-label={l.label}
+                   class="flex items-center gap-2 h-9 px-3.5 rounded-full text-white/80 hover:text-white hover:bg-white/15 text-xs sm:text-sm font-semibold transition">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d={l.icon}></path></svg>
+                    <span>{l.label}</span>
+                </a>
+            ))}
+        </nav>
+
+        <div class="hidden md:flex items-center gap-3 shrink-0">
+            
+            <a href="/CV.pdf" target="_blank" class="inline-flex items-center justify-center h-9 px-5 rounded-full bg-[#0f766e] hover:bg-[#0b5c56] text-white font-bold text-xs sm:text-sm transition shadow-md hover:shadow-teal-900/50">
+              {t.cv}
+            </a>
+
+            <span class="w-px h-5 bg-white/20"></span>
+
+            <a 
+                href={t.switchUrl} 
+                class="inline-flex items-center gap-1.5 h-9 px-3 rounded-full text-white/80 hover:text-white hover:bg-white/15 text-xs sm:text-sm font-bold transition"
+            >
+                <span>{t.switchFlag}</span>
+                <span class="tracking-wide">{t.switchLabel}</span>
+            </a>
+        </div>
+
+        <button id="menu-btn" class="md:hidden flex flex-col gap-1 p-2 focus:outline-none">
+            <div class="w-5 h-0.5 bg-white transition-all duration-300 origin-left" id="line1"></div>
+            <div class="w-5 h-0.5 bg-white transition-all duration-300" id="line2"></div>
+            <div class="w-5 h-0.5 bg-white transition-all duration-300 origin-left" id="line3"></div>
+        </button>
     </div>
-    <a href={t.switchUrl} class="hidden md:inline-flex items-center absolute right-8 top-1/2 -translate-y-1/2 px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-bold text-sm transition-colors shadow-sm">
-      {t.switchLabel}
-    </a>
 </header>
 
-<div id="mobile-menu" class="fixed inset-0 bg-white flex flex-col items-center justify-center pb-20 gap-7 text-xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
-    <a href="#home" class="mobile-link hover:text-[#0f766e] transition-colors">{t.home}</a>
-    <a href="#about" class="mobile-link hover:text-[#0f766e] transition-colors">{t.about}</a>
-    <a href="#projects" class="mobile-link hover:text-[#0f766e] transition-colors">{t.projects}</a>
-    <a href="#skills" class="mobile-link hover:text-[#0f766e] transition-colors">{t.skills}</a>
-    <a href="#contact" class="mobile-link hover:text-[#0f766e] transition-colors">{t.contact}</a>
+<div id="mobile-menu" class="fixed inset-0 bg-[#061c1a]/95 backdrop-blur-2xl flex flex-col items-center justify-center pb-16 gap-6 text-xl font-semibold opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+    {navLinks.map((l) => (
+        <a href={`#${l.id}`} class="mobile-link flex items-center gap-3 text-white/90 hover:text-teal-300 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d={l.icon}></path></svg>
+            <span>{l.label}</span>
+        </a>
+    ))}
     
-    <a href="/CV.pdf" target="_blank" class="mobile-link bg-[#0f766e] hover:bg-[#0b5c56] text-white px-8 py-3 mt-2 rounded-lg shadow-md transition-all">
-      {t.cv}
+    <a href="/CV.pdf" target="_blank" class="mobile-link mt-4 px-8 py-3 rounded-full bg-[#0f766e] text-white font-bold text-base shadow-lg">
+        {t.cv}
     </a>
 
-    <a href={t.switchUrl} class="mobile-link mt-2 px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-base transition-colors">
-      {t.switchLabel}
+    <a href={t.switchUrl} class="mobile-link mt-2 flex items-center gap-2 px-5 py-2 rounded-full glass text-white text-sm font-bold">
+        <span>{t.switchFlag}</span>
+        <span>{t.switchLabel}</span>
     </a>
 </div>
 
 <script>
-    const btn = document.getElementById('menu-btn')!;
-    const menu = document.getElementById('mobile-menu')!;
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
     const links = document.querySelectorAll('.mobile-link');
-    const line1 = document.getElementById('line1')!;
-    const line2 = document.getElementById('line2')!;
-    const line3 = document.getElementById('line3')!;
-  
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const line3 = document.getElementById('line3');
     let isMenuOpen = false;
-  
+
     function toggleMenu()
     {
-      isMenuOpen = !isMenuOpen;
-      
-      if (isMenuOpen)
-      {
-        menu.classList.remove('opacity-0', 'pointer-events-none');
-        menu.classList.add('opacity-100', 'pointer-events-auto');
-        
-        line1.classList.add('rotate-45', 'translate-x-[2px]', '-translate-y-[2px]');
-        line2.classList.add('opacity-0');
-        line3.classList.add('-rotate-45', 'translate-x-[2px]', 'translate-y-[2px]');
-        
-        document.body.style.overflow = 'hidden';
-      }
-      else
-      {
-        menu.classList.remove('opacity-100', 'pointer-events-auto');
-        menu.classList.add('opacity-0', 'pointer-events-none');
-        
-        line1.classList.remove('rotate-45', 'translate-x-[2px]', '-translate-y-[2px]');
-        line2.classList.remove('opacity-0');
-        line3.classList.remove('-rotate-45', 'translate-x-[2px]', 'translate-y-[2px]');
-        
-        document.body.style.overflow = 'auto';
-      }
-    }
-  
-    btn.addEventListener('click', toggleMenu);
-  
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        if (isMenuOpen) toggleMenu();
-      });
-    });
-
-    const sections = document.querySelectorAll('section');
-    const navLinksDesktop = document.querySelectorAll('.nav-link');
-    
-    const activeClasses = ['text-[#0f766e]', 'underline', 'decoration-2', 'decoration-[#0f766e]', 'underline-offset-8'];
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 150)
+        if (!menu || !line1 || !line2 || !line3) return;
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen)
         {
-          current = section.id;
+            menu.classList.remove('opacity-0', 'pointer-events-none');
+            menu.classList.add('opacity-100', 'pointer-events-auto');
+            line1.classList.add('rotate-45', 'translate-x-[2px]', '-translate-y-[1px]');
+            line2.classList.add('opacity-0');
+            line3.classList.add('-rotate-45', 'translate-x-[2px]', 'translate-y-[1px]');
+            document.body.style.overflow = 'hidden';
         }
-      });
+    
+        else
+        {
+            menu.classList.remove('opacity-100', 'pointer-events-auto');
+            menu.classList.add('opacity-0', 'pointer-events-none');
+            line1.classList.remove('rotate-45', 'translate-x-[2px]', '-translate-y-[1px]');
+            line2.classList.remove('opacity-0');
+            line3.classList.remove('-rotate-45', 'translate-x-[2px]', 'translate-y-[1px]');
+            document.body.style.overflow = 'auto';
+        }
+    }
 
-      navLinksDesktop.forEach(link => {
-        link.classList.remove(...activeClasses);
-        
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add(...activeClasses);
-        }
-      });
-    });
+    btn?.addEventListener('click', toggleMenu);
+    links.forEach(l => l.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); }));
 
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768 && isMenuOpen) {
-        toggleMenu();
-      }
+        if (window.innerWidth >= 768 && isMenuOpen) toggleMenu();
     });
 </script>
